@@ -7,7 +7,8 @@ import { fetchGitHubRepos } from "../services/githubApi";
 import type { GitHubPage } from "../types/github";
 
 function HomePage() {
-    const [repos, setRepos] = useState<GitHubPage[]>([]);
+    const [allRepos, setAllRepos] = useState<GitHubPage[]>([]);
+    const [featuredRepos, setFeaturedRepos] = useState<GitHubPage[]>([]);
 
 
     useEffect(() => {
@@ -16,11 +17,20 @@ function HomePage() {
 
             console.log(data);
 
-            setRepos(data);
+            setAllRepos(data);
+
+            const filteredRepos = data 
+                .filter((repo: GitHubPage) => !repo.fork)
+                .slice(0, 5);
+
+                setFeaturedRepos(filteredRepos)
         }
 
         loadRepos();
     }, []);
+
+   
+
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -53,7 +63,7 @@ function HomePage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    {repos
+                    {featuredRepos
                         .filter((repo) => !repo.fork)
                         .slice(0, 6)
                         .map((repo) => (
