@@ -8,4 +8,5 @@ export type GitHubPage = {
     language: string;
     homepage: string;
     stargazers_count: number;
+    fork: boolean;
 }

@@ -8,7 +8,7 @@ import type { GitHubPage } from "../types/github";
 
 function HomePage() {
     const [repos, setRepos] = useState<GitHubPage[]>([]);
-    
+
 
     useEffect(() => {
         async function loadRepos() {
@@ -53,26 +53,22 @@ function HomePage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    {repos.map((repo: any) => (
-                        <div
-                            key={repo.id}
-                            className="bg-white p-6 rounded-2xl shadow-md"
-                        >
-
-                            <h3 className="text-xl font-bold mb-2">
-                                {repo.name}
-                            </h3>
-
-                            <p className="text-gray-600 mb-4">
-                                {repo.description}
-                            </p>
-
-                            <p className="text-sm text-gray-500">
-                                {repo.language}
-                            </p>
-
-                        </div>
-                    ))}
+                    {repos
+                        .filter((repo) => !repo.fork)
+                        .slice(0, 6)
+                        .map((repo) => (
+                            <ProjectCard
+                                key={repo.id}
+                                title={repo.name}
+                                description={
+                                    repo.description || "No description available"
+                                }
+                                image="/images/project-placeholder.png"
+                                tech={[repo.language || "Unknown"]}
+                                gitHub={repo.html_url}
+                                demo={repo.homepage || repo.html_url}
+                            />
+                        ))}
 
                 </div>
 
