@@ -9,7 +9,7 @@ const projects = [
 
     tech: ["React", "TypeScript", "Leaflet", "API"],
 
-    github: "https://github.com/jasmichele",
+    github: "https://github.com/jas-michele",
 
     demo: "https://example.com",
   },
@@ -24,7 +24,7 @@ const projects = [
 
     tech: ["React", "Express", "MongoDB"],
 
-    github: "https://github.com/jasmichele",
+    github: "https://github.com/jas-michele",
 
     demo: "https://example.com",
   },
@@ -39,7 +39,7 @@ const projects = [
 
     tech: ["React", "Node.js", "Firebase"],
 
-    github: "https://github.com/jasmichele",
+    github: "https://github.com/jas-michele",
 
     demo: "https://example.com",
   },
