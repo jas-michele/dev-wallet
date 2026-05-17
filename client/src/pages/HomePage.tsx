@@ -63,13 +63,12 @@ function HomePage() {
                                 description={
                                     repo.description || "No description available"
                                 }
-                                image="/images/project-placeholder.png"
+                                image={`https://opengraph.githubassets.com/1/${repo.full_name}`}
                                 tech={[repo.language || "Unknown"]}
                                 gitHub={repo.html_url}
                                 demo={repo.homepage || repo.html_url}
                             />
-                        ))}
-
+                        ))} 
                 </div>
 
             </div>

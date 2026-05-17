@@ -2,6 +2,7 @@
 
 export type GitHubPage = {
     id: number;
+    full_name: string;
     name: string;
     description: string;
     html_url: string;
