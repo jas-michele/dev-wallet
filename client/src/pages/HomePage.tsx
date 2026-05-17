@@ -4,9 +4,11 @@ import ProfileCard from "../components/ProfileCard/ProfileCard"
 import projects from "../data/projects";
 import { useEffect, useState } from "react";
 import { fetchGitHubRepos } from "../services/githubApi";
+import type { GitHubPage } from "../types/github";
 
 function HomePage() {
-    const [repos, setRepos] = useState([]);
+    const [repos, setRepos] = useState<GitHubPage[]>([]);
+    
 
     useEffect(() => {
         async function loadRepos() {
